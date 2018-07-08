@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MyPassword</string>
+    <string name="create_password">创建账户密码</string>
+    <string name="show_all_password">查看所有密码</string>
+    <string name="account_name">账户名称</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="username_copy">复制用户名</string>
+    <string name="password_copy">复制密码</string>
+    <string name="cancel">取消</string>
+    <string name="save">保存</string>
+    <string name="modify">修改</string>
+    <string name="export_file">导出密码文件</string>
+    <string name="import_file">导入密码文件</string>
+</resources>
