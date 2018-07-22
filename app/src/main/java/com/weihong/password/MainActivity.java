@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.weihong.password.show.ShowPasswordActivity;
+
 /**
  * Created by hongw on 2018/7/8.
  */

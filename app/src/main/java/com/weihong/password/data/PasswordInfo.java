@@ -1,33 +1,30 @@
 package com.weihong.password.data;
 
-import com.weihong.password.Constants;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Property;
 import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Id;
 
 /**
  * Created by hongw on 2018/7/8.
  */
 @Entity
-public class PasswordInfo {
+public class PasswordInfo implements Parcelable {
 
     @Id(autoincrement = true)
     private Long id;
 
-//    @Property(nameInDb = Constants.COLUMN_ACCOUNT_NAME)
     private String accountName;
 
-//    @Property(nameInDb = Constants.COLUMN_USERNAME)
     private String username;
 
-//    @Property(nameInDb = Constants.COLUMN_PASSWORD)
     private String password;
 
     @Generated(hash = 2046799923)
     public PasswordInfo(Long id, String accountName, String username,
-            String password) {
+                        String password) {
         this.id = id;
         this.accountName = accountName;
         this.username = username;
@@ -70,4 +67,36 @@ public class PasswordInfo {
         this.password = password;
     }
 
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(this.id);
+        dest.writeString(this.accountName);
+        dest.writeString(this.username);
+        dest.writeString(this.password);
+    }
+
+    protected PasswordInfo(Parcel in) {
+        this.id = (Long) in.readValue(Long.class.getClassLoader());
+        this.accountName = in.readString();
+        this.username = in.readString();
+        this.password = in.readString();
+    }
+
+    public static final Parcelable.Creator<PasswordInfo> CREATOR = new Parcelable.Creator<PasswordInfo>() {
+        @Override
+        public PasswordInfo createFromParcel(Parcel source) {
+            return new PasswordInfo(source);
+        }
+
+        @Override
+        public PasswordInfo[] newArray(int size) {
+            return new PasswordInfo[size];
+        }
+    };
 }

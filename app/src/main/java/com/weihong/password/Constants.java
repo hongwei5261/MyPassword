@@ -12,6 +12,7 @@ public class Constants {
     public static final String COLUMN_USERNAME = "_username";
     public static final String COLUMN_PASSWORD = "_password";
 
+    public static final String KEY_PASSWORD_INFO = "key_password_info";
     public static final String KEY_ACCOUNT_NAME = "key_account_name";
     public static final String KEY_USERNAME = "key_username";
     public static final String KEY_PASSWORD = "key_password";

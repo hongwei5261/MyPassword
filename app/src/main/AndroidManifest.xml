@@ -19,7 +19,7 @@
         </activity>
 
         <activity android:name=".CreatePasswordActivity" />
-        <activity android:name=".ShowPasswordActivity" />
+        <activity android:name=".show.ShowPasswordActivity" />
         <activity android:name=".PasswordDetailActivity" />
     </application>
 

@@ -8,6 +8,8 @@ import java.util.List;
 
 /**
  * Created by hongw on 2018/7/8.
+ * <p>
+ * 可理解为Model
  */
 
 public class DataManager {
