@@ -1,13 +1,11 @@
 package com.weihong.password.show;
 
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.weihong.password.BR;
+//import com.weihong.password.BR;
 import com.weihong.password.R;
 import com.weihong.password.data.PasswordInfo;
 
@@ -23,7 +21,7 @@ class ShowPasswordAdapter extends BaseQuickAdapter<PasswordInfo, ShowPasswordAda
 
     @Override
     protected void convert(PasswordViewHolder helper, PasswordInfo item) {
-        helper.getBinding().setVariable(BR.passwordInfo, item);
+//        helper.getBinding().setVariable(BR.passwordInfo, item);
     }
 
     /**
@@ -35,13 +33,14 @@ class ShowPasswordAdapter extends BaseQuickAdapter<PasswordInfo, ShowPasswordAda
      */
     @Override
     protected View getItemView(int layoutResId, ViewGroup parent) {
-        ViewDataBinding binding = DataBindingUtil.inflate(mLayoutInflater, layoutResId, parent, false);
-        if (binding == null) {
-            return super.getItemView(layoutResId, parent);
-        }
-        View view = binding.getRoot();
-        view.setTag(R.id.BaseQuickAdapter_databinding_support, binding);
-        return view;
+//        ViewDataBinding binding = DataBindingUtil.inflate(mLayoutInflater, layoutResId, parent, false);
+//        if (binding == null) {
+//            return super.getItemView(layoutResId, parent);
+//        }
+//        View view = binding.getRoot();
+//        view.setTag(R.id.BaseQuickAdapter_databinding_support, binding);
+//        return view;
+        return null;
     }
 
     public static class PasswordViewHolder extends BaseViewHolder {
@@ -49,8 +48,8 @@ class ShowPasswordAdapter extends BaseQuickAdapter<PasswordInfo, ShowPasswordAda
             super(view);
         }
 
-        public ViewDataBinding getBinding() {
-            return (ViewDataBinding) itemView.getTag(R.id.BaseQuickAdapter_databinding_support);
-        }
+//        public ViewDataBinding getBinding() {
+//            return (ViewDataBinding) itemView.getTag(R.id.BaseQuickAdapter_databinding_support);
+//        }
     }
 }
