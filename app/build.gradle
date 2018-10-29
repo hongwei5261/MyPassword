@@ -46,12 +46,19 @@ android {
 //        variant.outputs.each { output ->
 //            def apk = output.outputFile
 //            if (apk != null && apk.name.endsWith('.apk')) {
-//                //${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}
-//                output.outputFile = new File(apk.parent + "/", "atest.apk")
+////                //${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}
+////                output.outputFile = new File(apk.parent + "/", "atest.apk")
 //            }
 //        }
 //    }
 
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+                //            outputFileName = "driver_${variant.productFlavors[0].name}_v${variant.versionName}.apk"
+            output ->
+                outputFileName = new File("../../../../apk/", "aa.apk")
+        }
+    }
 }
 
 dependencies {
