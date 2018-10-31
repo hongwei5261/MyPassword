@@ -36,7 +36,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
@@ -52,12 +52,36 @@ android {
 //        }
 //    }
 
-    applicationVariants.all { variant ->
-        variant.outputs.all {
-                //            outputFileName = "driver_${variant.productFlavors[0].name}_v${variant.versionName}.apk"
-            output ->
-                outputFileName = new File("../../../../apk/", "aa.apk")
-        }
+//    applicationVariants.all { variant ->
+//        variant.outputs.all {
+//                //            outputFileName = "driver_${variant.productFlavors[0].name}_v${variant.versionName}.apk"
+//            output ->
+//                outputFileName = new File("../../../../apk/", "aa.apk")
+//        }
+//    }
+
+}
+
+
+task copyFile(type: Copy) {
+    def time = new java.text.SimpleDateFormat("yy_MM_dd HH-mm-ss").format(new Date())
+    File file = new File("$rootDir")
+    File parentFile = file.getParentFile()
+    def dir = parentFile.absolutePath + "/apkversion/mypassword_v" + android.defaultConfig.versionName + "_" + time
+    copy {
+        from '../app/build/outputs/mapping'
+        into dir + "/mappings"
+    }
+    copy {
+        from '../app/build/outputs/apk'
+        into dir + "/apk"
+    }
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name.equals("assembleRelease")) {
+        println "---------------task.name>>>" + task.name
+        copyFile.dependsOn build
     }
 }
 
