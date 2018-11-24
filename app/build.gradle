@@ -60,6 +60,12 @@ android {
 //        }
 //    }
 
+    repositories {
+        maven {
+            url '../repo'
+        }
+    }
+
 }
 
 
@@ -97,4 +103,6 @@ dependencies {
     implementation 'org.greenrobot:greendao:3.2.2'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.android.support:multidex:1.0.1'
+
+    implementation 'com.wei.rxjava:rxjava:0.8.2'
 }
